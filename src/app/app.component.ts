@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
     const inputEl = document.createElement('ng-text-field');
     inputEl.setAttribute('confirmbuttontext', 'OK!');
     inputEl.setAttribute('cancelbuttontext', 'Nah...');
+    inputEl.setAttribute('maxlength', '10');
     document.body.appendChild(inputEl);
   }
 }

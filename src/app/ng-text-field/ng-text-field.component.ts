@@ -10,27 +10,20 @@ import { AbstractControlOptions } from '@angular/forms/src/model';
 })
 export class NgTextFieldComponent implements OnInit {
   public textField: FormControl;
-  @Input() validators = [];
+  @Input() maxlength = 140;
+  @Input() required = true;
   @Input() confirmbuttontext = 'Submit';
   @Input() cancelbuttontext = 'Clear';
 
   constructor() { }
 
   ngOnInit() {
-    const fieldValidators: any[] = this.validators
-      .map(this._mapValidator)
-      .filter((validator) => validator !== undefined);
-    this.textField = new FormControl('', fieldValidators);
-  }
-
-  private _mapValidator(validatorParam: IValidatorParameter) {
-    switch (validatorParam.name) {
-      case 'minLength':
-        return Validators.minLength(validatorParam.value);
-      case 'maxLength':
-        return Validators.maxLength(validatorParam.value);
-      case 'required':
-        return Validators.required;
+    const fieldValidators = [
+      Validators.maxLength(this.maxlength)
+    ];
+    if (this.required) {
+      fieldValidators.push(Validators.required);
     }
+    this.textField = new FormControl('', fieldValidators);
   }
 }
