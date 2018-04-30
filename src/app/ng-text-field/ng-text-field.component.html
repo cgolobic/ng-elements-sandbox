@@ -1,1 +1,7 @@
-<textarea [formControl]="textField"></textarea>
+<div class="text-field-container">
+  <textarea class="text-field" [formControl]="textField"></textarea>
+  <div class="button-container">
+    <button class="button cancel">{{cancelButtonText}}</button>
+    <button class="button confirm">{{confirmButtonText}}</button>
+  </div>
+</div>
