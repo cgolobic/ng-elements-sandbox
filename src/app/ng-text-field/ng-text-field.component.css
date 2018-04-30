@@ -41,6 +41,7 @@
 .confirm {
   background-color: #76B041;
   color: #ffffff;
+  margin-left: 10px;
 }
 
 .confirm:active {

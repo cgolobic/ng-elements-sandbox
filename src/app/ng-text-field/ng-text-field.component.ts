@@ -11,17 +11,16 @@ import { AbstractControlOptions } from '@angular/forms/src/model';
 export class NgTextFieldComponent implements OnInit {
   public textField: FormControl;
   @Input() validators = [];
-  @Input() confirmButtonText = 'Submit';
-  @Input() cancelButtonText = 'Clear';
+  @Input() confirmbuttontext = 'Submit';
+  @Input() cancelbuttontext = 'Clear';
 
   constructor() { }
 
   ngOnInit() {
-    const validators: any[] = this.validators
+    const fieldValidators: any[] = this.validators
       .map(this._mapValidator)
       .filter((validator) => validator !== undefined);
-    console.log(validators);
-    this.textField = new FormControl('', validators);
+    this.textField = new FormControl('', fieldValidators);
   }
 
   private _mapValidator(validatorParam: IValidatorParameter) {
