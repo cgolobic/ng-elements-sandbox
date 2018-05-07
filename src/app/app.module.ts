@@ -18,11 +18,13 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   entryComponents: [ NgTextFieldComponent ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule {
-  constructor(private injector: Injector) {
-    const textFieldElement = createCustomElement(NgTextFieldComponent, { injector });
+  constructor(private injector: Injector) { }
+
+  ngDoBootstrap() {
+    const textFieldElement = createCustomElement(NgTextFieldComponent, { injector: this.injector });
     customElements.define('ng-text-field', textFieldElement);
   }
 }

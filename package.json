@@ -6,6 +6,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
+    "build:static": "ng build --prod --output-hashing false && node concat-static.js",
+    "serve:static": "http-server -p 4201",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -34,6 +36,9 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "concat": "^1.0.3",
+    "fs-extra": "^6.0.0",
+    "http-server": "^0.11.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
