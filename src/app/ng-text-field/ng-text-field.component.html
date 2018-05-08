@@ -1,7 +1,7 @@
 <div class="text-field-container">
   <textarea class="text-field" [formControl]="textField"></textarea>
   <div class="button-container">
-    <button class="button cancel">{{cancelbuttontext}}</button>
-    <button class="button confirm">{{confirmbuttontext}}</button>
+    <button class="button cancel" (click)="clear()">{{cancelbuttontext}}</button>
+    <button class="button confirm" (click)="confirm.emit(textField.value)">{{confirmbuttontext}}</button>
   </div>
 </div>

@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { IValidatorParameter } from '../types/validator-parameter';
-import { AbstractControlOptions } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-ng-text-field',
@@ -14,6 +13,7 @@ export class NgTextFieldComponent implements OnInit {
   @Input() required = true;
   @Input() confirmbuttontext = 'Submit';
   @Input() cancelbuttontext = 'Clear';
+  @Output() confirm = new EventEmitter<string>();
 
   constructor() { }
 
@@ -25,5 +25,9 @@ export class NgTextFieldComponent implements OnInit {
       fieldValidators.push(Validators.required);
     }
     this.textField = new FormControl('', fieldValidators);
+  }
+
+  clear() {
+    this.textField.setValue('');
   }
 }
