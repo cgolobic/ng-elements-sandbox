@@ -10,9 +10,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const inputEl = document.createElement('ng-text-field');
-    inputEl.setAttribute('confirmbuttontext', 'Send it!');
-    inputEl.setAttribute('cancelbuttontext', 'On second thought...');
-    inputEl.setAttribute('maxlength', '10');
+    inputEl.setAttribute('confirm-button-text', 'Send it!');
+    inputEl.setAttribute('cancel-button-text', 'On second thought...');
+    inputEl.setAttribute('max-length', '10');
     inputEl.addEventListener('confirm', (event: CustomEvent) => this.popAlert(event.detail));
     document.body.appendChild(inputEl);
   }

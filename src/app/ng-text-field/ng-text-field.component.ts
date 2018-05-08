@@ -9,17 +9,17 @@ import { IValidatorParameter } from '../types/validator-parameter';
 })
 export class NgTextFieldComponent implements OnInit {
   public textField: FormControl;
-  @Input() maxlength = 140;
+  @Input() maxLength = 140;
   @Input() required = true;
-  @Input() confirmbuttontext = 'Submit';
-  @Input() cancelbuttontext = 'Clear';
+  @Input() confirmButtonText = 'Submit';
+  @Input() cancelButtonText = 'Clear';
   @Output() confirm = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
     const fieldValidators = [
-      Validators.maxLength(this.maxlength)
+      Validators.maxLength(this.maxLength)
     ];
     if (this.required) {
       fieldValidators.push(Validators.required);
