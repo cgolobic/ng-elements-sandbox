@@ -1,2 +1,5 @@
-<ng-text-field confirmbuttontext="OK!" maxlength=20></ng-text-field>
+<ng-text-field id="textfield" confirmbuttontext="OK!" maxlength=20></ng-text-field>
 <script src="../elements/ng-text-field.js"></script>
+<script>
+  document.getElementById('textfield').addEventListener('confirm', (confirmEvent) => window.alert(confirmEvent.detail));
+</script>
